@@ -7,6 +7,8 @@ docker build -t stataimg Environment/
 # the dockerfile as the working directory
 docker run --init -it --rm --mount "type=bind,source=${PWD}/Environment/stata.lic,target=/usr/local/stata/stata.lic" -v "${PWD}":/project stataimg -b code/analysis.do
 
-# NOTES
+# command if the license is copied into the image
+# docker run --init -it --rm -v "${PWD}":/project stataimg -b code/analysis.do
+
+# NOTE
 # to run stata interactively, remove -b code/analysis.do at the end of the command
-# if you copied the license into your image (see the Dockerfile), you can remove the --mount "..." from your command 
