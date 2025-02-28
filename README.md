@@ -12,11 +12,11 @@ More explanations [in this post](https://andreamoro.net/blog/2025/02/26/How-to-r
 6. Run ```run_docker.sh```
 
 
-To run stata interactively, type from the root of your project (path-to-license stands for the full path to the directory where the license is, ```${PWD}``` is the full path to your working directory, and ```statimg``` is the name of your image:
+To run stata interactively, type from the root of your project (/path-to-license stands for the full path to the directory where the license is, ```${PWD}``` is the full path to your working directory, and ```statimg``` is the name of your image:
 
     ``` 
     docker run  --init -it --rm \
-                --mount "type=bind,source=path-to-license/stata.lic, \
+                --mount "type=bind,source=/path-to-license/stata.lic, \
                          target=/usr/local/stata/stata.lic" \
                 -v "${PWD}":/project   \ 
                 stataimg
