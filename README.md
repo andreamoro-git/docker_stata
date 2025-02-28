@@ -14,14 +14,14 @@ More explanations [in this post](https://andreamoro.net/blog/2025/02/26/How-to-r
 
 To run stata interactively, type from the root of your project (where ($PWD) stands for the full path to your working directory and statimg is the name of your image:
 
-	``` 
-	docker run 	--init -it --rm \
-			   	--mount "type=bind,source=${PWD}/Environment/stata.lic, \
-			    		target=/usr/local/stata/stata.lic" \
-			   	-v "${PWD}":/project   \ 
-			   	stataimg
-	```
+    ``` 
+    docker run 	--init -it --rm \
+                --mount "type=bind,source=${PWD}/Environment/stata.lic, \
+                         target=/usr/local/stata/stata.lic" \
+                -v "${PWD}":/project   \ 
+                stataimg
+    ```
 
 Note: if you don't need to install any packages, or intend to do it inside your do files, or interactively in Stata, you don't need to build any image (but packages will be donwloaded and installed every time you run your code). Just substitute stataimg with one of the pre-compiled images provided [at the dataeditors docker hub](https://hub.docker.com/u/dataeditors), e.g. ```dataeditors/stata18-se:2024-12-18``` according to your license and preferences.
-		
+        
 That's all. Let me know if it does not work for you. 
