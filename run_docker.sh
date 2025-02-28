@@ -1,6 +1,7 @@
 # build the stata image (requires placing stata license file inside Environment)
 docker build -t stataimg Environment/
 
+STATALIC="path/to/stata/license"
 # execute the do file where ${STATALIC} is the full path of the location of your stata license
 # and $PWD is your current working directory
 # (in your system the name of the variable PWD may be different, check with echo $PWD)
