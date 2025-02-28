@@ -15,7 +15,7 @@ More explanations [in this post](https://andreamoro.net/blog/2025/02/26/How-to-r
 To run stata interactively, type from the root of your project (where ($PWD) stands for the full path to your working directory and statimg is the name of your image:
 
     ``` 
-    docker run 	--init -it --rm \
+    docker run  --init -it --rm \
                 --mount "type=bind,source=${PWD}/Environment/stata.lic, \
                          target=/usr/local/stata/stata.lic" \
                 -v "${PWD}":/project   \ 
