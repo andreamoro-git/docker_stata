@@ -20,5 +20,5 @@ ENV PATH="$PATH:/usr/local/stata"
  # e.g. if you are using Stata/MP, you would probably use stata-mp
  RUN stata-se -b setup.do 
 
- # mount your project root directory here when you create a container (see below) 
+ # mount your project root directory here when you createing the container (see run_docker.sh) 
  WORKDIR /project

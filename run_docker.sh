@@ -1,13 +1,14 @@
 # build the stata image (requires placing stata license file inside Environment)
 docker build -t stataimg Environment/
 
-# execute the do file where ${PWD} is the full path of the location of your stata license
+# execute the do file where ${STATALIC} is the full path of the location of your stata license
+# and $PWD is your current working directory
 # (in your system the name of the variable PWD may be different, check with echo $PWD)
-# the -v mounts your PWD into the container filesystem: /project is the directory specified in
+# the -v mounts your $PWD into the container's filesystem: /project is the directory specified in
 # the dockerfile as the working directory
-docker run --init -it --rm --mount "type=bind,source=${PWD}/Environment/stata.lic,target=/usr/local/stata/stata.lic" -v "${PWD}":/project stataimg -b code/analysis.do
+docker run --init -it --rm --mount "type=bind,source=${STATALIC}/stata.lic,target=/usr/local/stata/stata.lic" -v "${PWD}":/project stataimg -b code/analysis.do
 
-# command if the license is copied into the image
+# command if you chose to copy the license into the image (see Dockerfile)
 # docker run --init -it --rm -v "${PWD}":/project stataimg -b code/analysis.do
 
 # NOTE
